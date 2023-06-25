@@ -1,21 +1,36 @@
 import Image from 'next/image';
 import React from 'react';
+import moment from 'moment';
 
-function DayCard() {
+type DayCardProps = {
+  index: number;
+  onClick: (index: number) => void;
+  date: moment.Moment;
+};
+
+function DayCard({ index, onClick, date }: DayCardProps) {
+  const handleClick = () => {
+    onClick(index);
+  };
+
   return (
-    <div className="dayCard" >
-        <Image
-            className="mb-4"
-            src="/calendar.svg"
-            alt="calendar"
-            width={30}
-            height={30}
-        />
-        <h1><span id='Otrodia'>00</span> / <span id='Otromes'>00</span> / <span id='Otroanio'>00</span></h1>
-        <h3><span className="otroDistance">0000</span> km</h3>
+    <div className="dayCard" onClick={handleClick}>
+      <Image
+        className="mb-4"
+        src="/calendar.svg"
+        alt="calendar"
+        width={30}
+        height={30}
+      />
+      <h1>
+        <span id="Otrodia">{date.format('DD')}</span> / <span id="Otromes">{date.format('MM')}</span> /{' '}
+        <span id="Otroanio">{date.format('YY')}</span>
+      </h1>
+      <h3>
+        <span id="Otrodia">{date.format('dddd')}</span>
+      </h3>
     </div>
-
-    );
+  );
 }
 
 export default DayCard;

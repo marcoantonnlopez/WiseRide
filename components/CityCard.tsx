@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import React from 'react';
 
-function CityCard() {
+function CityCard({ city, index }: { city: any, index: number }) {
+    const cityName = city.city;
+    const maxTemp = city.climate[index]?.maxTemp;
+    const minTemp = city.climate[index]?.minTemp;
+    const events = city.events[index];
+
   return (
     <div className="ciudadCard" >
-        <h1 className="cityName">CityName</h1>
+        <h1 className="cityName">{cityName}</h1>
         <br />
             <div className="infCity">
                 <Image
@@ -15,7 +20,7 @@ function CityCard() {
                     width={30}
                     height={30}
                 />
-                <p>  Climate: <span className="climateCity">00.00</span> °C</p>
+                <p>  Max: <span className="climateCity">{maxTemp}</span> °C, Min: <span className="climateCity">{minTemp}</span> °C</p>
             </div>
             <div className="infCity">
                 <Image
@@ -26,7 +31,7 @@ function CityCard() {
                     width={30}
                     height={30}
                 />
-                <p>  Events: <span className="eventsCity">00</span></p>
+                <p>  Events: <span className="eventsCity">{events}</span></p>
             </div>
     </div>
     );

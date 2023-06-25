@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import DayInfo from '../../components/dayInfo';
 import InputBusqueda from '../../components/inputBusqueda';
-import moment from 'moment';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,9 +14,13 @@ interface City {
 }
 
 export default function Home() {
+
+  const cityStart = "San Luis Potosi";
+  const cityEnd = "New York";
+
   const [cities, setCities] = useState<City[]>([
     {
-      city: "San Luis Potosi",
+      city: cityStart,
       data: {},
       events: [],
       climate: [] 
@@ -76,7 +79,7 @@ export default function Home() {
         />;
         <InputBusqueda />
       </div>
-      <DayInfo/> {/* Pass the cities data as a prop */}
+      <DayInfo cities={cities}/> {/* Pass the cities data as a prop */}
     </main>
   );
 }

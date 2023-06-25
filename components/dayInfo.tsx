@@ -1,16 +1,31 @@
-import React from 'react';
-import CityCard from './CityCard'
-import DayCard from './DayCard'
+import React, { useState } from 'react';
+import CityCard from './CityCard';
+import DayCard from './DayCard';
+import moment from 'moment';
 
 
-function DayInfo() {
+function DayInfo({ cities }: { cities: any[] }) {
+  const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+
+  const handleDayCardClick = (index: number) => {
+    setSelectedDayIndex(index);
+  };
+
+  let dates = [];
+  for(let i = 0; i < 14; i++){
+    const date = moment().add(i, 'days').startOf('day');
+    dates.push(date);
+  }
+
+  const today = moment().startOf('day');
+
   return (
     <div className="dayInfo">
       <div className="map">
         <div className="distanceContainer">
           <h3 className="distTitle">Distance</h3>
           <h1 className="distanceNum">0000 <span>km</span></h1>
-          <h4 className='day'><span id='dia'>00</span> / <span id='mes'>00</span> / <span id='anio'>00</span></h4>
+          <h4 className='day'><span id='dia'>{today.format('DD')}</span> / <span id='mes'>{today.format('MM')}</span> / <span id='anio'>{today.format('YY')}</span></h4>
         </div>
       </div>
 
@@ -22,33 +37,27 @@ function DayInfo() {
 <br /><br />
 
     <h2 className="cityTitle">Cities to go </h2><br />
-      <div className="cities">
-
-        <CityCard />
-        <CityCard />
-        <CityCard />
-        <CityCard />
-
-      </div>
-      <br /><br />
+    <div className="cities">
+        {cities.map((city, index) => (
+          <CityCard
+            key={index}
+            city={city}
+            index={selectedDayIndex}
+          />
+        ))}
+    </div>
+    <br /><br />
 
     <h2 className="daysTitle">Other days to travel </h2><br />
     <div className="days">
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-    <DayCard />
-
+      {dates.map((date, index) => (
+            <DayCard
+              key={index}
+              date={date}
+              index={index}
+              onClick={handleDayCardClick}
+            />
+          ))}
     </div>
 
     </div>
