@@ -7,6 +7,20 @@ import InputBusqueda from '../../components/inputBusqueda'
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  let cities = [
+    {
+      city: "San Luis Potosi",
+      events: [],
+      climate: [] 
+    }, 
+    {
+      city: "New York",
+      events: [],
+      climate: [] 
+    }
+  ];
+
+
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between ${inter.className} bg-white`}
