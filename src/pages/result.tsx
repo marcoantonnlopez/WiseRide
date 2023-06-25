@@ -73,7 +73,7 @@ export default function Home() {
           alt="Logo"
           width={50}
           height={50}
-        />
+        />console.log(cities);
         <InputBusqueda />
       </div>
       <DayInfo/> {/* Pass the cities data as a prop */}
