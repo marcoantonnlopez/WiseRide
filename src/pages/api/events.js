@@ -1,10 +1,10 @@
 import SerpApi from 'google-search-results-nodejs';
 import moment from 'moment';
-const apiKey = process.env.EVENT_KEY;
+//const apiKey = process.env.EVENT_KEY;
+const apiKey = 'a8897393286ab3bb452f34207ad8d00508ab2a4fcf61590f00398793fe8465dc';
 
 
 const fetchEvents = async (city) => {
-  
 
   let events = await makeRequest(city, 0);
 

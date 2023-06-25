@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import DayInfo from '../../components/dayInfo';
-import InputBusqueda from '../../components/inputBusqueda'
+import InputBusqueda from '../../components/inputBusqueda';
 import moment from 'moment';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -32,9 +32,8 @@ export default function Home() {
 
   useEffect(() => {
 
-    //get city array from rodrigo
-
     const fillCities = async (cities: City[]) => {
+      const updatedCities: City[] = [];
       for (const current of cities) {
         try {
           const dataResponse = await fetch(`/api/data/${current.city}`);
@@ -45,19 +44,25 @@ export default function Home() {
           const climateData = await climateResponse.json();
           const eventsData = await eventsResponse.json();
         
-          current.data = cityData;
-          current.climate = climateData;
-          current.events = eventsData;
+          const updatedCity: City = {
+            ...current,
+            data: cityData,
+            climate: climateData,
+            events: eventsData,
+          };
+
+          updatedCities.push(updatedCity);
         } catch (error) {
           console.log(error);
         }
       }
-      setCities([...cities]); // Update the cities state with the fetched data
+      setCities(updatedCities); // Update the cities state with the fetched data
     };
 
     fillCities(cities);
-    console.log(cities);
   }, []);
+
+  console.log(cities);
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between ${inter.className} bg-white`}>
