@@ -1,27 +1,308 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+     :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient( to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    background-color: rgb(255, 255, 255)
+}
+
+
+/* -------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+
+a {
+    text-decoration: none;
+}
+
+.inpContainer {
+    width: 100%;
+}
+
+.inpContainer {
+    border-radius: 50px;
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+    height: 30vh;
+}
+
+.iconContainer {
+    background-color: #40EBE2;
+    color: rgb(123, 123, 123);
+}
+
+.inp {
+    border-radius: 30px;
+    padding: 10px 15px;
+    /* width: 40%; */
+    /* border: solid 2px #8f8f8f; */
+    border: none;
+    background-color: rgb(248, 248, 248);
+    color: #303030;
+    font-weight: 500;
+    /* cursor: pointer; */
+    transition: 0.3s;
+    box-shadow: 0 0 7px rgba(162, 162, 162, 0.8);
+}
+
+.inp:hover {
+    box-shadow: 0 0 10px rgba(113, 113, 113, 0.8);
+}
+
+.inp:focus {
+    box-shadow: 0 0 10px rgba(45, 129, 190, 0.8);
+    box-shadow: 0 0 15px linear-gradient(70deg, #2D81BE, #35e7c4);
+    outline: 2px solid #2D81BE;
+    background-color: #ffffff;
+}
+
+.slogan {
+    color: rgb(90, 90, 90);
+    font-weight: 700;
+    font-size: 29px;
+    text-align: center;
+}
+
+.main_boton {
+    background: linear-gradient( #10E1FF, #0498FF);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    /* margin-bottom: 20px; */
+    transition: 0.3s;
+    /* transition: all 0.3s ease-in-out; */
+}
+
+.main_boton:hover {
+    transform: scale(1.1);
+    background: linear-gradient(160deg, #10E1FF, #0498FF);
+    color: white;
+}
+
+.btnSpecial1 {
+    border-radius: 50px 0 0 50px;
+}
+
+.btnSpecial2 {
+    border-radius: 0 0 0 0;
+}
+
+.btnSpecial3 {
+    border-radius: 0 50px 50px 0;
+}
+
+
+/* *-------------- RESULT ---------------- */
+
+
+/* ? --------- DAYINFO -----------*/
+
+.dayInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    /* background-color: #0498FF; */
+    background: linear-gradient(180deg, rgba(225, 225, 225, 0.989), rgba(255, 255, 255, 0.697));
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+    /* font-family: 'poppins'; */
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: top;
+    backdrop-filter: blur(50px);
+}
+
+.map {
+    /* background-color: #0498FF; */
+    margin-top: 100px;
+    /* background: linear-gradient(360deg, rgb(83, 83, 83), rgb(255, 255, 255)); */
+    height: 200px;
+    width: 100vw;
+}
+
+.distanceContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.distTitle {
+    font-size: 25px;
+    color: #4a4a4a;
+    font-weight: 700;
+}
+
+.distanceNum {
+    font-size: 50px;
+    color: #10E1FF;
+    font-weight: 900;
+}
+
+.day {
+    font-size: 15px;
+    color: #4a4a4a;
+    font-weight: 700;
+}
+
+.map2 {
+    background-color: #303030;
+    width: 80%;
+    border-radius: 50px;
+    height: 300px;
+    box-shadow: 0 0 7px rgba(162, 162, 162, 0.8);
+}
+
+
+/* * --- cities --- */
+
+.cityTitle {
+    font-size: 30px;
+    color: #4a4a4a;
+    font-weight: 700;
+    text-align: center;
+}
+
+.cities {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 10%;
+}
+
+.ciudadCard {
+    padding: 20px;
+    height: 200px;
+    width: 300px;
+    padding: 20px;
+    text-align: start;
+    color: #2d2d2d;
+    border-radius: 20px;
+    /* box-shadow: 0 0 15px linear-gradient(70deg, #2D81BE, #35e7c4); */
+    box-shadow: 0 0 7px rgba(162, 162, 162, 0.8);
+    margin: 20px 10px;
+}
+
+.cityName {
+    font-size: 25px;
+    font-weight: 650;
+    color: #10E1FF;
+}
+
+.infCity {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.infCity p {
+    padding-left: 20px;
+}
+
+.climateCity {
+    font-weight: 600;
+}
+
+.eventsCity {
+    font-weight: 600;
+}
+
+
+/* * --- Days --- */
+
+.days {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 10%;
+}
+
+.daysTitle {
+    font-size: 40px;
+    color: #4a4a4a;
+    font-weight: 800;
+    text-align: center;
+}
+
+.dayCard {
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+    text-align: start;
+    color: #2d2d2d;
+    /* border-radius: 20px; */
+    border-radius: 150px;
+    /* box-shadow: 0 0 15px linear-gradient(70deg, #2D81BE, #35e7c4); */
+    box-shadow: 0 0 7px rgba(162, 162, 162, 0.8);
+    margin: 25px 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dayCard:hover {
+    box-shadow: 0 0 10px rgba(13, 166, 237, 0.8);
+    background: linear-gradient(70deg, #10dfff39, #0496ff38);
+    transform: scale(1.2);
+}
+
+.dayCard image {
+    width: 50%;
+}
+
+.dayCard h1 {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.dayCard h3 {
+    font-weight: 700;
+    color: #10E1FF;
 }
