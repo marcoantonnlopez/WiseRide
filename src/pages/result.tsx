@@ -30,6 +30,9 @@ export default function Home() {
   ]);
 
   useEffect(() => {
+
+    //get city array from rodrigo
+
     const fillCities = async (cities: City[]) => {
       for (const current of cities) {
         try {
