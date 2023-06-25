@@ -26,7 +26,7 @@ export default function Home() {
       climate: [] 
     }, 
     {
-      city: "New York",
+      city: cityEnd,
       data: {},
       events: [],
       climate: [] 
