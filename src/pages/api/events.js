@@ -63,7 +63,8 @@ const fetchEvents = async (city) => {
   }
   console.log(`returnArray: ${returnArray}`);
   console.log(events.length);
-  return events;
+  //return events;
+  return returnArray;
 };
 
 export default async (req, res) => {
